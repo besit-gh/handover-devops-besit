@@ -6,6 +6,7 @@ on:
       - features
     paths:
       - "web-lessons/linux-permissions/**"
+      - "02-Linux/README.md"
       - ".github/workflows/linux-permissions-pages.yml"
   workflow_dispatch:
 
@@ -63,12 +64,19 @@ jobs:
           print(f"HTML sanity check passed: {len(checker.ids)} IDs, {len(checker.anchors)} internal links.")
           PY
           node --check /tmp/linux-permissions.js
+      - name: Prepare Pages site
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p site/web-lessons/linux-permissions
+          cp web-lessons/linux-permissions/index.html site/index.html
+          cp web-lessons/linux-permissions/index.html site/web-lessons/linux-permissions/index.html
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload lesson artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: web-lessons/linux-permissions
+          path: site
   deploy:
     environment:
       name: github-pages
