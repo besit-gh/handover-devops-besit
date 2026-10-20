@@ -32,3 +32,8 @@ Git, CLI и приложение.
 ## Первые практические уроки
 
 - [Testing pyramid](./01-Testing-pyramid.md)
+
+
+## Дополнительный урок
+
+- [Тестирование CLI-инструмента](./02-Testing-a-command-line-tool.md)
