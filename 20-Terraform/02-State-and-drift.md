@@ -1,4 +1,4 @@
-# Terraform state и drift
+# Terraform: состояние и drift
 
 > Средний уровень · 40–50 минут · Требуются plan/apply и Git.
 
