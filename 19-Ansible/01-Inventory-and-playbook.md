@@ -1,4 +1,4 @@
-# Inventory и первый Ansible playbook
+# Ansible: инвентарь и playbook
 
 > **Уровень:** начальный · **Время:** 35–45 минут · **Предварительные знания:** Linux, SSH и YAML.
 

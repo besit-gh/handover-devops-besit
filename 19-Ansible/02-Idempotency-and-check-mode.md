@@ -1,4 +1,4 @@
-# Идемпотентность и check mode в Ansible
+# Ansible: идемпотентность и check mode
 
 > Средний уровень · 35–45 минут · Требуются inventory и playbook.
 

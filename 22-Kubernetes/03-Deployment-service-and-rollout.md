@@ -1,4 +1,4 @@
-# Deployment, Service и rollout в Kubernetes
+# Kubernetes: развёртывание, Service и обновление
 
 > Начальный уровень · 40–50 минут · Требуются архитектура Kubernetes и YAML.
 
