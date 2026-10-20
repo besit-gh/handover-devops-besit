@@ -31,4 +31,4 @@ Elasticsearch и логирование.
 
 ## Первый практический урок
 
-- [Поиск логов в Kibana](./01-Discover-and-query.md)
+- [Поиск и запросы в Kibana](./01-Discover-and-query.md)

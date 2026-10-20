@@ -32,4 +32,4 @@ Linux, файлы, JSON и сеть.
 
 ## Первый практический урок
 
-- [Конвейер сбора логов во Fluent Bit](./01-Log-collection-pipeline.md)
+- [Конвейер сбора логов Fluent Bit](./01-Log-collection-pipeline.md)

@@ -31,4 +31,4 @@ JSON и Elasticsearch.
 
 ## Первый практический урок
 
-- [Первый pipeline Logstash](./01-First-pipeline.md)
+- [Первый конвейер Logstash](./01-First-pipeline.md)

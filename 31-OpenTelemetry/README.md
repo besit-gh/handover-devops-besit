@@ -32,4 +32,4 @@ HTTP и распределённые приложения.
 
 ## Первый практический урок
 
-- [Traces, spans и распространение контекста](./01-Traces-spans-and-context.md)
+- [Трассы, спаны и контекст OpenTelemetry](./01-Traces-spans-and-context.md)
