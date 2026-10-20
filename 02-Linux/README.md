@@ -36,8 +36,8 @@ Foundations.
 
 ## Дополнительные уроки
 - [Пользователи, группы и права: практическая диагностика](./04-Users-groups-and-permissions.md)
-- [Интерактивная лаборатория: права доступа Linux](https://besit-gh.github.io/handover-devops-besit/) — матрица rwx, калькулятор chmod, виртуальный терминал, блок-схемы, ACL и тест.
+- [Интерактивная лаборатория: права доступа Linux](https://besit-gh.github.io/handover-devops-besit/web-lessons/linux-permissions/) — матрица rwx, калькулятор chmod, виртуальный терминал, блок-схемы, ACL и тест.
 - [Процессы и сигналы](./05-Processes-and-signals.md)
 
 ## Публикация интерактивного урока
-Статическая веб-страница находится в [`web-lessons/linux-permissions/index.html`](../web-lessons/linux-permissions/index.html) и может запускаться локально без сборки и внешних библиотек. После успешного включения GitHub Pages ожидаемый адрес опубликованного урока — https://besit-gh.github.io/handover-devops-besit/. Workflow [linux-permissions-pages.yml](../.github/workflows/linux-permissions-pages.yml) подготавливает публикацию через GitHub Pages при изменениях в ветке `features`. Для реального деплоя в настройках репозитория должен быть разрешён GitHub Pages с источником **GitHub Actions**; доступность Pages для приватного репозитория зависит от тарифа и настроек GitHub.
+Исходная страница находится в [`web-lessons/linux-permissions/index.html`](../web-lessons/linux-permissions/index.html) и запускается локально без сборки и внешних библиотек. После публикации доступны оба адреса: корень сайта — https://besit-gh.github.io/handover-devops-besit/ и прямой путь урока — https://besit-gh.github.io/handover-devops-besit/web-lessons/linux-permissions/. Workflow [linux-permissions-pages.yml](../.github/workflows/linux-permissions-pages.yml) теперь помещает копию урока и в корень, и в исходный путь, чтобы обе ссылки работали. Публикация запускается автоматически при изменениях в ветке `features`; в настройках репозитория источник GitHub Pages должен быть **GitHub Actions**.
