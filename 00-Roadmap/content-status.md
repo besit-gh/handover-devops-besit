@@ -6,7 +6,7 @@
 
 - **39** каталогов курсов и навигационных разделов.
 - **39** файлов README с планами и предварительными знаниями.
-- **87** самостоятельных файлов уроков, лабораторий, проектов и handover-материалов.
+- **91** самостоятельных файлов уроков, лабораторий, проектов и handover-материалов.
 - Единый стандарт урока и шаблон опубликованы в Roadmap.
 
 ## Количество подготовленных отдельных материалов
@@ -31,20 +31,20 @@
 | 16-Docker | 4 |
 | 17-Testing | 2 |
 | 18-CI-CD | 4 |
-| 19-Ansible | 2 |
-| 20-Terraform | 3 |
+| 19-Ansible | 3 |
+| 20-Terraform | 4 |
 | 21-Cloud | 1 |
 | 22-Kubernetes | 5 |
 | 23-Helm | 1 |
 | 24-Prometheus | 3 |
-| 25-Grafana | 1 |
+| 25-Grafana | 2 |
 | 26-Elasticsearch | 1 |
 | 27-Logstash | 1 |
 | 28-Kibana | 1 |
 | 29-Fluent-Bit | 1 |
 | 30-Loki | 1 |
 | 31-OpenTelemetry | 1 |
-| 32-Vault | 1 |
+| 32-Vault | 2 |
 | 33-Security | 1 |
 | 34-Production-Operations | 3 |
 | 35-SRE-Fundamentals | 1 |
