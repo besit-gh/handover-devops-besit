@@ -33,3 +33,8 @@ Foundations и Linux CLI.
 ## Первые практические уроки
 
 - [IP routes and sockets](./01-IP-routes-and-sockets.md)
+
+
+## Дополнительный практический урок
+
+- [TCP connection and listening ports](./02-TCP-connection-and-listening-ports.md)

@@ -33,3 +33,8 @@
 ## Первый практический урок
 
 - [Метрики и targets в Prometheus](./01-Metrics-and-targets.md)
+
+
+## Дополнительный практический урок
+
+- [Alerting rules](./02-Alerting-rules.md)

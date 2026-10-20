@@ -33,3 +33,8 @@ Linux, процессы, файлы и сеть.
 ## Первые практические уроки
 
 - [Image vs container](./01-Image-vs-container.md)
+
+
+## Дополнительный практический урок
+
+- [Volumes and container networking](./02-Volumes-and-container-networking.md)

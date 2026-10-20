@@ -33,3 +33,8 @@ Git/GitHub, тесты и артефакты.
 ## Первые практические уроки
 
 - [Pipeline basics](./01-Pipeline-basics.md)
+
+
+## Дополнительный практический урок
+
+- [Release and rollback](./02-Release-and-rollback.md)

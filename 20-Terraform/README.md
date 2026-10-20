@@ -33,3 +33,8 @@
 ## Первые практические уроки
 
 - [Plan and apply](./01-Plan-and-apply.md)
+
+
+## Дополнительный практический урок
+
+- [State and drift](./02-State-and-drift.md)

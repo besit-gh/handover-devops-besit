@@ -32,3 +32,8 @@
 ## Первые практические уроки
 
 - [First safe script](./01-First-safe-script.md)
+
+
+## Дополнительный практический урок
+
+- [Exit codes and safe error handling](./02-Exit-codes-and-safe-error-handling.md)

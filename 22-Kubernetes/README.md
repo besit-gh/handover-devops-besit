@@ -34,3 +34,8 @@ Docker, YAML, сеть, Linux и HTTP.
 ## Первые практические уроки
 
 - [Cluster architecture](./01-Cluster-architecture.md)
+
+
+## Дополнительный практический урок
+
+- [Probes and resource limits](./02-Probes-and-resource-limits.md)

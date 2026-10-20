@@ -32,3 +32,8 @@
 ## Первые практические уроки
 
 - [Working tree index commit](./01-Working-tree-index-commit.md)
+
+
+## Дополнительный практический урок
+
+- [Branches and conflicts](./02-Branches-and-conflicts.md)

@@ -33,3 +33,8 @@ Linux, SSH, YAML и права.
 ## Первые практические уроки
 
 - [Inventory and playbook](./01-Inventory-and-playbook.md)
+
+
+## Дополнительный практический урок
+
+- [Idempotency and check mode](./02-Idempotency-and-check-mode.md)

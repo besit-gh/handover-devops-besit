@@ -30,3 +30,8 @@ Foundations.
 - [Лаборатории и инциденты](../91-Labs-Incidents/README.md)
 
 > **Статус:** план курса зафиксирован. Подробные уроки наполняются последовательно по стандарту. Первый полный образец — [Программа, процесс и поток](../01-Foundations/03-Program-process-thread.md).
+
+
+## Дополнительный практический урок
+
+- [Processes systemd and journal](./03-Processes-systemd-and-journal.md)
