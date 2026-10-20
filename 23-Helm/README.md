@@ -32,4 +32,4 @@ Kubernetes и YAML.
 
 ## Первый практический урок
 
-- [Helm chart, values и рендеринг](./01-Chart-values-and-rendering.md)
+- [Chart, values и рендеринг Helm](./01-Chart-values-and-rendering.md)

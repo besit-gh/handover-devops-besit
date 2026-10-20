@@ -32,4 +32,4 @@
 
 ## Первый практический урок
 
-- [Облачная модель и shared responsibility](./01-Cloud-shared-responsibility.md)
+- [Облачная модель и разделение ответственности](./01-Cloud-shared-responsibility.md)

@@ -35,6 +35,6 @@
 
 ## Дополнительный практический урок
 
-- [Alerting rules](./02-Alerting-rules.md)
+- [Правила оповещений Prometheus](./02-Alerting-rules.md)
 
 - [PromQL, rate и cardinality](./03-PromQL-rate-and-cardinality.md)
