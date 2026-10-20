@@ -42,3 +42,8 @@
 ## Дополнительные уроки
 
 - [Undoing changes safely](./03-Undoing-changes-safely.md)
+
+
+## Дополнительные уроки
+
+- [Undoing changes safely](./03-Undoing-changes-safely.md)

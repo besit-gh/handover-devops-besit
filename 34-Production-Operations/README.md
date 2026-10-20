@@ -34,3 +34,8 @@
 ## Первый практический урок
 
 - [Операционная готовность сервиса](./01-Operational-readiness.md)
+
+
+## Дополнительные уроки
+
+- [Incident triage and timeline](./02-Incident-triage-and-timeline.md)
