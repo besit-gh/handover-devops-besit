@@ -32,18 +32,20 @@ Docker, YAML, сеть, Linux и HTTP.
 
 ## Первые практические уроки
 
-- [Cluster architecture](./01-Cluster-architecture.md)
+- [Архитектура кластера](./01-Cluster-architecture.md)
 
 ## Дополнительный практический урок
 
-- [Probes and resource limits](./02-Probes-and-resource-limits.md)
+- [Проверки готовности и лимиты ресурсов](./02-Probes-and-resource-limits.md)
 
 ## Дополнительные уроки
 
-- [Deployment service and rollout](./03-Deployment-service-and-rollout.md)
+- [Развёртывание, Service и обновление](./03-Deployment-service-and-rollout.md)
 
 ## Дополнительные уроки
 
 ## Дополнительные уроки
 
-- [Probes and resource limits](./04-Probes-and-resource-limits.md)
+- [Проверки готовности и лимиты ресурсов](./04-Probes-and-resource-limits.md)
+
+- [Диагностика сервиса от Pod до Service](./05-Диагностика-сервиса-от-Pod-до-Service.md)

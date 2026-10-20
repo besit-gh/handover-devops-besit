@@ -6,7 +6,7 @@
 
 - **39** каталогов курсов и навигационных разделов.
 - **39** файлов README с планами и предварительными знаниями.
-- **80** самостоятельных файлов уроков, лабораторий, проектов и handover-материалов.
+- **87** самостоятельных файлов уроков, лабораторий, проектов и handover-материалов.
 - Единый стандарт урока и шаблон опубликованы в Roadmap.
 
 ## Количество подготовленных отдельных материалов
@@ -16,8 +16,8 @@
 | 01-Foundations | 12 |
 | 02-Linux | 5 |
 | 03-Networking | 3 |
-| 04-Bash | 4 |
-| 05-Python | 2 |
+| 04-Bash | 5 |
+| 05-Python | 3 |
 | 06-Git | 3 |
 | 07-GitHub | 1 |
 | 08-YAML | 1 |
@@ -26,15 +26,15 @@
 | 11-DNS | 1 |
 | 12-TLS-PKI | 1 |
 | 13-Nginx | 2 |
-| 14-PostgreSQL | 2 |
+| 14-PostgreSQL | 3 |
 | 15-Redis | 1 |
-| 16-Docker | 3 |
+| 16-Docker | 4 |
 | 17-Testing | 2 |
-| 18-CI-CD | 3 |
+| 18-CI-CD | 4 |
 | 19-Ansible | 2 |
 | 20-Terraform | 3 |
 | 21-Cloud | 1 |
-| 22-Kubernetes | 4 |
+| 22-Kubernetes | 5 |
 | 23-Helm | 1 |
 | 24-Prometheus | 3 |
 | 25-Grafana | 1 |
@@ -46,7 +46,7 @@
 | 31-OpenTelemetry | 1 |
 | 32-Vault | 1 |
 | 33-Security | 1 |
-| 34-Production-Operations | 2 |
+| 34-Production-Operations | 3 |
 | 35-SRE-Fundamentals | 1 |
 | 90-Capstone-Projects | 2 |
 | 91-Labs-Incidents | 2 |

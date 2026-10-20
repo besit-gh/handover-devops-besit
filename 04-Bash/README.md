@@ -28,20 +28,17 @@
 
 > **Статус:** план курса зафиксирован. Подробные уроки наполняются последовательно по стандарту. Первый полный образец — [Программа, процесс и поток](../01-Foundations/03-Program-process-thread.md).
 
-
 ## Первые практические уроки
 
-- [First safe script](./01-First-safe-script.md)
-
+- [Первый безопасный скрипт](./01-First-safe-script.md)
 
 ## Дополнительный практический урок
 
-- [Exit codes and safe error handling](./02-Exit-codes-and-safe-error-handling.md)
-
+- [Коды завершения и безопасная обработка ошибок](./02-Exit-codes-and-safe-error-handling.md)
 
 ## Дополнительные уроки
 
-- [Quoting globbing and input validation](./03-Quoting-globbing-and-input-validation.md)
+- [Кавычки, шаблоны имён и проверка ввода](./03-Quoting-globbing-and-input-validation.md)
 
-
-- [Pipelines, traps и pipefail](./04-Pipelines-traps-and-pipefail.md)
+- [Конвейеры, trap и pipefail](./04-Pipelines-traps-and-pipefail.md)
+- [Диагностика конвейеров и журналирование](./05-Диагностика-конвейеров-и-логирование.md)

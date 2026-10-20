@@ -45,11 +45,11 @@
 - [31-OpenTelemetry — OpenTelemetry](./31-OpenTelemetry/README.md)
 - [32-Vault — Vault](./32-Vault/README.md)
 - [33-Security — Безопасность DevOps](./33-Security/README.md)
-- [34-Production-Operations — Production Operations](./34-Production-Operations/README.md)
-- [35-SRE-Fundamentals — SRE Fundamentals](./35-SRE-Fundamentals/README.md)
+- [34-Production-Operations — Эксплуатация production-систем](./34-Production-Operations/README.md)
+- [35-SRE-Fundamentals — Основы SRE](./35-SRE-Fundamentals/README.md)
 - [90-Capstone-Projects — Сквозные проекты](./90-Capstone-Projects/README.md)
 - [91-Labs-Incidents — Лаборатории и инциденты](./91-Labs-Incidents/README.md)
-- [92-Handover-Book — Handover Book](./92-Handover-Book/README.md)
+- [92-Handover-Book — Книга передачи сервиса](./92-Handover-Book/README.md)
 
 ## Принципы
 - Практический минимум теории с объяснением причин, механизмов и поведения при сбоях.

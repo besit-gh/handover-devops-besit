@@ -31,14 +31,16 @@ Linux, процессы, файлы и сеть.
 
 ## Первые практические уроки
 
-- [Image vs container](./01-Image-vs-container.md)
+- [Образ и контейнер](./01-Image-vs-container.md)
 
 ## Дополнительный практический урок
 
-- [Volumes and container networking](./02-Volumes-and-container-networking.md)
+- [Тома и сеть контейнеров](./02-Volumes-and-container-networking.md)
 
 ## Дополнительные уроки
 
-- [Dockerfile and build context](./03-Dockerfile-and-build-context.md)
+- [Dockerfile и контекст сборки](./03-Dockerfile-and-build-context.md)
 
 ## Дополнительные уроки
+
+- [Compose, зависимости и проверка готовности](./04-Compose-и-зависимости-сервисов.md)

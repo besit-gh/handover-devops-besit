@@ -29,14 +29,13 @@ Git/GitHub, тесты и артефакты.
 
 > **Статус:** план курса зафиксирован. Подробные уроки наполняются последовательно по стандарту. Первый полный образец — [Программа, процесс и поток](../01-Foundations/03-Program-process-thread.md).
 
-
 ## Первые практические уроки
 
-- [Pipeline basics](./01-Pipeline-basics.md)
-
+- [Основы конвейера CI/CD](./01-Pipeline-basics.md)
 
 ## Дополнительный практический урок
 
-- [Release and rollback](./02-Release-and-rollback.md)
+- [Выпуск и откат](./02-Release-and-rollback.md)
 
-- [Quality gates для контейнерного сервиса](./03-Pipeline-quality-gates.md)
+- [Проверки качества перед выпуском](./03-Pipeline-quality-gates.md)
+- [Версии артефактов и повторяемость выпуска](./04-Версии-артефакты-и-повторяемость.md)
