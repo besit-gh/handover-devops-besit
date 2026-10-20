@@ -33,3 +33,5 @@
 ## Первый практический урок
 
 - [Шаблон передачи сервиса](./01-Service-handover-template.md)
+
+- [Runbook и эскалация](./02-Runbook-and-escalation.md)

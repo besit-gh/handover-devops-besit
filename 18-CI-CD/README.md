@@ -38,3 +38,5 @@ Git/GitHub, тесты и артефакты.
 ## Дополнительный практический урок
 
 - [Release and rollback](./02-Release-and-rollback.md)
+
+- [Quality gates для контейнерного сервиса](./03-Pipeline-quality-gates.md)

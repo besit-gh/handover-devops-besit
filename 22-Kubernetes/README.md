@@ -30,26 +30,19 @@ Docker, YAML, сеть, Linux и HTTP.
 
 > **Статус:** план курса зафиксирован. Подробные уроки наполняются последовательно по стандарту. Первый полный образец — [Программа, процесс и поток](../01-Foundations/03-Program-process-thread.md).
 
-
 ## Первые практические уроки
 
 - [Cluster architecture](./01-Cluster-architecture.md)
-
 
 ## Дополнительный практический урок
 
 - [Probes and resource limits](./02-Probes-and-resource-limits.md)
 
-
 ## Дополнительные уроки
 
 - [Deployment service and rollout](./03-Deployment-service-and-rollout.md)
 
-
 ## Дополнительные уроки
-
-- [Deployment service and rollout](./03-Deployment-service-and-rollout.md)
-
 
 ## Дополнительные уроки
 

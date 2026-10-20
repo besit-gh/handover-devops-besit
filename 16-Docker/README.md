@@ -29,22 +29,16 @@ Linux, процессы, файлы и сеть.
 
 > **Статус:** план курса зафиксирован. Подробные уроки наполняются последовательно по стандарту. Первый полный образец — [Программа, процесс и поток](../01-Foundations/03-Program-process-thread.md).
 
-
 ## Первые практические уроки
 
 - [Image vs container](./01-Image-vs-container.md)
-
 
 ## Дополнительный практический урок
 
 - [Volumes and container networking](./02-Volumes-and-container-networking.md)
 
-
 ## Дополнительные уроки
 
 - [Dockerfile and build context](./03-Dockerfile-and-build-context.md)
 
-
 ## Дополнительные уроки
-
-- [Dockerfile and build context](./03-Dockerfile-and-build-context.md)

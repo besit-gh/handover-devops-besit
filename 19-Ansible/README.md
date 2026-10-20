@@ -29,17 +29,12 @@ Linux, SSH, YAML и права.
 
 > **Статус:** план курса зафиксирован. Подробные уроки наполняются последовательно по стандарту. Первый полный образец — [Программа, процесс и поток](../01-Foundations/03-Program-process-thread.md).
 
-
 ## Первые практические уроки
 
 - [Inventory and playbook](./01-Inventory-and-playbook.md)
-
 
 ## Дополнительный практический урок
 
 - [Idempotency and check mode](./02-Idempotency-and-check-mode.md)
 
-
 ## Дополнительные уроки
-
-- [Idempotency and check mode](./02-Idempotency-and-check-mode.md)

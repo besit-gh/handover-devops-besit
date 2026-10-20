@@ -34,3 +34,5 @@
 ## Первый практический урок
 
 - [Проект: Linux-сервис с наблюдаемостью](./01-Linux-service-with-observability.md)
+
+- [Контейнеризированный сервис с CI и восстановлением](./02-Containerized-service-with-ci.md)

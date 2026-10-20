@@ -29,15 +29,12 @@
 
 > **Статус:** план курса зафиксирован. Подробные уроки наполняются последовательно по стандарту. Первый полный образец — [Программа, процесс и поток](../01-Foundations/03-Program-process-thread.md).
 
-
 ## Первый практический урок
 
 - [Метрики и targets в Prometheus](./01-Metrics-and-targets.md)
 
-
 ## Дополнительный практический урок
 
 - [Alerting rules](./02-Alerting-rules.md)
-
 
 - [PromQL, rate и cardinality](./03-PromQL-rate-and-cardinality.md)
