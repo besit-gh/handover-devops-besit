@@ -34,5 +34,5 @@
 
 - [Проект: Linux-сервис с наблюдаемостью](./01-Linux-service-with-observability.md)
 
-- [Контейнеризированный сервис с CI и восстановлением](./02-Containerized-service-with-ci.md)
+- [Проект: контейнеризированный сервис с CI и восстановлением](./02-Containerized-service-with-ci.md)
 - [Рабочий демонстрационный сервис: код, тесты, Docker и CI](./demo-servicio/README.md)

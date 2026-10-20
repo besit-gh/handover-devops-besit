@@ -36,4 +36,4 @@
 
 - [Лаборатория: Permission denied в Linux](./01-Linux-permission-denied.md)
 
-- [Неудачный релиз контейнерного сервиса](./02-Container-release-failure.md)
+- [Лаборатория: неудачный релиз контейнерного сервиса](./02-Container-release-failure.md)

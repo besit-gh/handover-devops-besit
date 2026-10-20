@@ -31,12 +31,12 @@
 
 ## Первые практические уроки
 
-- [Plan and apply](./01-Plan-and-apply.md)
+- [Планирование и применение Terraform](./01-Plan-and-apply.md)
 
 ## Дополнительный практический урок
 
-- [State and drift](./02-State-and-drift.md)
+- [Состояние Terraform и drift](./02-State-and-drift.md)
 
-- [Модули и проверка plan](./03-Modules-and-plan-review.md)
+- [Модули и проверка плана](./03-Modules-and-plan-review.md)
 
 - [Безопасный жизненный цикл инфраструктуры](./04-Безопасный-жизненный-цикл-инфраструктуры.md)
