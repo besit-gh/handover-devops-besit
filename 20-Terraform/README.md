@@ -40,6 +40,4 @@
 - [State and drift](./02-State-and-drift.md)
 
 
-## Дополнительные уроки
-
-- [State and drift](./02-State-and-drift.md)
+- [Модули и проверка plan](./03-Modules-and-plan-review.md)

@@ -40,6 +40,4 @@
 - [Alerting rules](./02-Alerting-rules.md)
 
 
-## Дополнительные уроки
-
-- [Alerting rules](./02-Alerting-rules.md)
+- [PromQL, rate и cardinality](./03-PromQL-rate-and-cardinality.md)

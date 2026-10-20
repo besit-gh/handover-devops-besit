@@ -42,3 +42,6 @@
 ## Дополнительные уроки
 
 - [Quoting globbing and input validation](./03-Quoting-globbing-and-input-validation.md)
+
+
+- [Pipelines, traps и pipefail](./04-Pipelines-traps-and-pipefail.md)

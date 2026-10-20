@@ -32,3 +32,6 @@ Linux, HTTP и DNS.
 ## Первый практический урок
 
 - [Nginx как reverse proxy](./01-Reverse-proxy-basics.md)
+
+
+- [Proxy-заголовки, клиентский IP и таймауты](./02-Proxy-headers-and-timeouts.md)

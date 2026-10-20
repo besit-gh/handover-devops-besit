@@ -32,3 +32,6 @@ Linux, сеть и базовый SQL.
 ## Первый практический урок
 
 - [База данных, схема и первый SQL-запрос](./01-Database-schema-and-queries.md)
+
+
+- [Транзакции, индексы и EXPLAIN](./02-Transactions-indexes-and-explain.md)
