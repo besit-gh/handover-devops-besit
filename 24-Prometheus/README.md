@@ -38,3 +38,8 @@
 ## Дополнительный практический урок
 
 - [Alerting rules](./02-Alerting-rules.md)
+
+
+## Дополнительные уроки
+
+- [Alerting rules](./02-Alerting-rules.md)

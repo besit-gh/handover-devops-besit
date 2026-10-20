@@ -49,3 +49,8 @@ Docker, YAML, сеть, Linux и HTTP.
 ## Дополнительные уроки
 
 - [Deployment service and rollout](./03-Deployment-service-and-rollout.md)
+
+
+## Дополнительные уроки
+
+- [Probes and resource limits](./04-Probes-and-resource-limits.md)

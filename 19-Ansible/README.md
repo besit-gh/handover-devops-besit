@@ -38,3 +38,8 @@ Linux, SSH, YAML и права.
 ## Дополнительный практический урок
 
 - [Idempotency and check mode](./02-Idempotency-and-check-mode.md)
+
+
+## Дополнительные уроки
+
+- [Idempotency and check mode](./02-Idempotency-and-check-mode.md)
