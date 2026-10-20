@@ -30,4 +30,4 @@
 
 ## Первый практический урок
 
-- [JSON: объекты и массивы](./01-JSON-objects-and-arrays.md)
+- [Объекты и массивы JSON](./01-JSON-objects-and-arrays.md)

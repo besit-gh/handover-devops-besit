@@ -32,14 +32,14 @@ Foundations и Linux CLI.
 
 ## Первые практические уроки
 
-- [IP routes and sockets](./01-IP-routes-and-sockets.md)
+- [IP-адреса, маршруты и сокеты](./01-IP-routes-and-sockets.md)
 
 
 ## Дополнительный практический урок
 
-- [TCP connection and listening ports](./02-TCP-connection-and-listening-ports.md)
+- [TCP-соединения и слушающие порты](./02-TCP-connection-and-listening-ports.md)
 
 
 ## Дополнительные уроки
 
-- [DNS TCP TLS diagnostic sequence](./03-DNS-TCP-TLS-diagnostic-sequence.md)
+- [Диагностика DNS, TCP и TLS по шагам](./03-DNS-TCP-TLS-diagnostic-sequence.md)

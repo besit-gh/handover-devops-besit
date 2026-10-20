@@ -31,19 +31,19 @@
 
 ## Первые практические уроки
 
-- [Working tree index commit](./01-Working-tree-index-commit.md)
+- [Рабочее дерево, индекс и коммит](./01-Working-tree-index-commit.md)
 
 
 ## Дополнительный практический урок
 
-- [Branches and conflicts](./02-Branches-and-conflicts.md)
+- [Ветки и конфликты](./02-Branches-and-conflicts.md)
 
 
 ## Дополнительные уроки
 
-- [Undoing changes safely](./03-Undoing-changes-safely.md)
+- [Безопасная отмена изменений](./03-Undoing-changes-safely.md)
 
 
 ## Дополнительные уроки
 
-- [Undoing changes safely](./03-Undoing-changes-safely.md)
+- [Безопасная отмена изменений](./03-Undoing-changes-safely.md)

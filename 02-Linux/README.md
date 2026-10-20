@@ -34,10 +34,10 @@ Foundations.
 
 ## Дополнительный практический урок
 
-- [Processes systemd and journal](./03-Processes-systemd-and-journal.md)
+- [Процессы, systemd и журналы](./03-Processes-systemd-and-journal.md)
 
 
 ## Дополнительные уроки
 
-- [Users groups and permissions](./04-Users-groups-and-permissions.md)
-- [Processes and signals](./05-Processes-and-signals.md)
+- [Пользователи, группы и права: практическая диагностика](./04-Users-groups-and-permissions.md)
+- [Процессы и сигналы](./05-Processes-and-signals.md)

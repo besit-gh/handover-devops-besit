@@ -31,4 +31,4 @@ Git и аутентификация.
 
 ## Первый практический урок
 
-- [Репозиторий и pull request в GitHub](./01-Repository-and-pull-request.md)
+- [Репозиторий и pull request](./01-Repository-and-pull-request.md)
