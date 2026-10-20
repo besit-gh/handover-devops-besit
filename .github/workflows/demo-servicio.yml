@@ -1,0 +1,49 @@
+name: Проверка демонстрационного сервиса
+
+on:
+  push:
+    paths:
+      - "90-Capstone-Projects/demo-servicio/**"
+      - ".github/workflows/demo-servicio.yml"
+  pull_request:
+    paths:
+      - "90-Capstone-Projects/demo-servicio/**"
+      - ".github/workflows/demo-servicio.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  проверка:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 90-Capstone-Projects/demo-servicio
+    steps:
+      - name: Получить исходный код
+        uses: actions/checkout@v4
+      - name: Установить Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Проверить синтаксис
+        run: python -m py_compile app.py tests/test_app.py
+      - name: Запустить тесты
+        run: PYTHONPATH=. python -m unittest discover -s tests -v
+      - name: Собрать контейнер
+        run: docker build -t demo-servicio:${{ github.sha }} .
+      - name: Проверить HTTP внутри контейнера
+        run: |
+          docker run --detach --rm --name demo-servicio -p 127.0.0.1:18080:8080 demo-servicio:${{ github.sha }}
+          cleanup() { docker stop demo-servicio >/dev/null 2>&1 || true; }
+          trap cleanup EXIT
+          for attempt in $(seq 1 15); do
+            if curl --fail --silent http://127.0.0.1:18080/health; then
+              echo "Smoke test passed"
+              exit 0
+            fi
+            sleep 1
+          done
+          docker logs demo-servicio
+          exit 1
