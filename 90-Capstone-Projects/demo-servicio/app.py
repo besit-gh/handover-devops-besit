@@ -1,4 +1,7 @@
-"""Small HTTP service used by the DevOps capstone project."""
+"""Small HTTP service used by the DevOps capstone project.
+
+The CI pipeline exercises this service from unit tests through container smoke tests.
+"""
 import json
 import os
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
