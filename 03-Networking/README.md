@@ -38,3 +38,8 @@ Foundations и Linux CLI.
 ## Дополнительный практический урок
 
 - [TCP connection and listening ports](./02-TCP-connection-and-listening-ports.md)
+
+
+## Дополнительные уроки
+
+- [DNS TCP TLS diagnostic sequence](./03-DNS-TCP-TLS-diagnostic-sequence.md)

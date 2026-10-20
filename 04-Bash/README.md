@@ -37,3 +37,8 @@
 ## Дополнительный практический урок
 
 - [Exit codes and safe error handling](./02-Exit-codes-and-safe-error-handling.md)
+
+
+## Дополнительные уроки
+
+- [Quoting globbing and input validation](./03-Quoting-globbing-and-input-validation.md)
