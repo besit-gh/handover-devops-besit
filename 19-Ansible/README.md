@@ -28,3 +28,8 @@ Linux, SSH, YAML и права.
 - [Лаборатории и инциденты](../91-Labs-Incidents/README.md)
 
 > **Статус:** план курса зафиксирован. Подробные уроки наполняются последовательно по стандарту. Первый полный образец — [Программа, процесс и поток](../01-Foundations/03-Program-process-thread.md).
+
+
+## Первые практические уроки
+
+- [Inventory and playbook](./01-Inventory-and-playbook.md)

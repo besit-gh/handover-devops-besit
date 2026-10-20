@@ -29,3 +29,8 @@ Docker, YAML, сеть, Linux и HTTP.
 - [Лаборатории и инциденты](../91-Labs-Incidents/README.md)
 
 > **Статус:** план курса зафиксирован. Подробные уроки наполняются последовательно по стандарту. Первый полный образец — [Программа, процесс и поток](../01-Foundations/03-Program-process-thread.md).
+
+
+## Первые практические уроки
+
+- [Cluster architecture](./01-Cluster-architecture.md)
