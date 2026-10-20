@@ -13,3 +13,10 @@
 9. [Виртуализация и безопасная лаборатория](09-Virtualization-and-Safe-Labs.md)
 
 Далее: [Linux](../02-Linux/README.md), [Networking](../03-Networking/README.md), [Bash](../04-Bash/README.md) и [Git](../06-Git/README.md).
+
+
+## Дополнительные уроки
+
+- [Environment variables and process environment](./10-Environment-variables-and-process-environment.md)
+- [Processes signals and exit status](./11-Processes-signals-and-exit-status.md)
+- [Resource bottlenecks first diagnosis](./12-Resource-bottlenecks-first-diagnosis.md)
