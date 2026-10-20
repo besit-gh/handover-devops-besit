@@ -33,3 +33,8 @@ CLI и основы программирования.
 ## Первый практический урок
 
 - [Python: CLI, файлы и обработка ошибок](./01-CLI-files-and-errors.md)
+
+
+## Дополнительные уроки
+
+- [HTTP client timeouts and json](./02-HTTP-client-timeouts-and-json.md)

@@ -37,3 +37,8 @@
 ## Дополнительный практический урок
 
 - [Branches and conflicts](./02-Branches-and-conflicts.md)
+
+
+## Дополнительные уроки
+
+- [Undoing changes safely](./03-Undoing-changes-safely.md)

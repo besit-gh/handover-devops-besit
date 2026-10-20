@@ -38,3 +38,8 @@ Linux, процессы, файлы и сеть.
 ## Дополнительный практический урок
 
 - [Volumes and container networking](./02-Volumes-and-container-networking.md)
+
+
+## Дополнительные уроки
+
+- [Dockerfile and build context](./03-Dockerfile-and-build-context.md)

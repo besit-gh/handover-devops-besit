@@ -39,3 +39,8 @@ Docker, YAML, сеть, Linux и HTTP.
 ## Дополнительный практический урок
 
 - [Probes and resource limits](./02-Probes-and-resource-limits.md)
+
+
+## Дополнительные уроки
+
+- [Deployment service and rollout](./03-Deployment-service-and-rollout.md)
