@@ -1,14 +1,13 @@
-name: Publish interactive Linux lessons to GitHub Pages
+name: Build interactive DevOps learning site
 
 on:
   push:
     branches:
       - features
     paths:
-      - "web-lessons/linux-permissions/**"
-      - "web-lessons/linux-filesystems/**"
-      - "02-Linux/README.md"
-      - "00-Roadmap/content-status.md"
+      - "**.md"
+      - "scripts/build_learning_site.py"
+      - "web-lessons/**"
       - ".github/workflows/linux-permissions-pages.yml"
   workflow_dispatch:
 
@@ -18,7 +17,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages-linux-permissions
+  group: pages-learning-site
   cancel-in-progress: true
 
 jobs:
@@ -27,96 +26,43 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Validate HTML structure and JavaScript syntax
+      - name: Install Markdown renderer
+        run: python3 -m pip install --disable-pip-version-check Markdown
+      - name: Build the full curriculum
+        run: python3 scripts/build_learning_site.py
+      - name: Validate generated site
         shell: bash
         run: |
           set -euo pipefail
-          test -s web-lessons/linux-permissions/index.html
+          test -s site/index.html
+          test -s site/web-lessons/linux-permissions/index.html
+          test -s site/web-lessons/linux-filesystems/index.html
           python3 - <<'PY'
           from html.parser import HTMLParser
           from pathlib import Path
-          import re
-
-          source = Path("web-lessons/linux-permissions/index.html").read_text(encoding="utf-8")
-          assert '<html lang="ru">' in source, "Страница должна указывать русский язык"
-          assert 'id="chmod"' in source and 'id="quiz"' in source, "Не найдены обязательные интерактивные разделы"
-          scripts = re.findall(r"<script>(.*?)</script>", source, re.S)
-          assert scripts, "Не найден встроенный JavaScript"
-          Path("/tmp/linux-permissions.js").write_text("\n".join(scripts), encoding="utf-8")
-
-          class Checker(HTMLParser):
+          pages = list(Path("site").rglob("index.html"))
+          assert len(pages) >= 90, f"Too few generated pages: {len(pages)}"
+          class Check(HTMLParser):
               def __init__(self):
-                  super().__init__()
-                  self.ids = []
-                  self.anchors = []
+                  super().__init__(); self.ids=[]; self.links=[]
               def handle_starttag(self, tag, attrs):
-                  attrs = dict(attrs)
-                  if "id" in attrs:
-                      self.ids.append(attrs["id"])
-                  href = attrs.get("href", "")
-                  if href.startswith("#"):
-                      self.anchors.append(href[1:])
-
-          checker = Checker()
-          checker.feed(source)
-          duplicates = sorted({x for x in checker.ids if checker.ids.count(x) > 1})
-          assert not duplicates, f"Повторяющиеся id: {duplicates}"
-          missing = sorted(set(checker.anchors) - set(checker.ids))
-          assert not missing, f"Ссылки ведут на отсутствующие разделы: {missing}"
-          print(f"HTML sanity check passed: {len(checker.ids)} IDs, {len(checker.anchors)} internal links.")
+                  a=dict(attrs)
+                  if "id" in a: self.ids.append(a["id"])
+                  if a.get("href","").startswith("#"): self.links.append(a["href"][1:])
+          for page in pages:
+              source=page.read_text(encoding="utf-8")
+              assert '<html lang="ru">' in source, f"Missing Russian locale: {page}"
+              checker=Check(); checker.feed(source)
+              duplicates=sorted({x for x in checker.ids if checker.ids.count(x)>1})
+              assert not duplicates, f"Duplicate IDs in {page}: {duplicates}"
+              missing=sorted(set(checker.links)-set(checker.ids))
+              assert not missing, f"Broken local anchors in {page}: {missing}"
+          print(f"Validated {len(pages)} generated pages.")
           PY
-          node --check /tmp/linux-permissions.js
-      - name: Validate filesystem lesson
-        shell: bash
-        run: |
-          set -euo pipefail
-          test -s web-lessons/linux-filesystems/index.html
-          python3 - <<'PY'
-          from html.parser import HTMLParser
-          from pathlib import Path
-          import re
-
-          source = Path("web-lessons/linux-filesystems/index.html").read_text(encoding="utf-8")
-          assert '<html lang="ru">' in source, "Страница должна указывать русский язык"
-          required = ["map", "mount", "fstab", "diagnostics", "incident", "quiz"]
-          assert all(f'id="{item}"' in source for item in required), "Не найдены обязательные разделы урока"
-          scripts = re.findall(r"<script>(.*?)</script>", source, re.S)
-          assert scripts, "Не найден встроенный JavaScript"
-          Path("/tmp/linux-filesystems.js").write_text("\n".join(scripts), encoding="utf-8")
-
-          class Checker(HTMLParser):
-              def __init__(self):
-                  super().__init__()
-                  self.ids = []
-                  self.anchors = []
-              def handle_starttag(self, tag, attrs):
-                  attrs = dict(attrs)
-                  if "id" in attrs:
-                      self.ids.append(attrs["id"])
-                  href = attrs.get("href", "")
-                  if href.startswith("#"):
-                      self.anchors.append(href[1:])
-
-          checker = Checker()
-          checker.feed(source)
-          duplicates = sorted({x for x in checker.ids if checker.ids.count(x) > 1})
-          assert not duplicates, f"Повторяющиеся id: {duplicates}"
-          missing = sorted(set(checker.anchors) - set(checker.ids))
-          assert not missing, f"Ссылки ведут на отсутствующие разделы: {missing}"
-          print(f"Filesystem lesson check passed: {len(checker.ids)} IDs, {len(checker.anchors)} internal links.")
-          PY
-          node --check /tmp/linux-filesystems.js
-      - name: Prepare Pages site
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p site/web-lessons/linux-permissions site/web-lessons/linux-filesystems
-          cp web-lessons/linux-permissions/index.html site/index.html
-          cp web-lessons/linux-permissions/index.html site/web-lessons/linux-permissions/index.html
-          cp web-lessons/linux-filesystems/index.html site/web-lessons/linux-filesystems/index.html
+          node --check web-lessons/assets/course.js
       - name: Configure Pages
         uses: actions/configure-pages@v5
-      - name: Upload lesson artifact
+      - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: site
