@@ -36,8 +36,8 @@ Foundations.
 
 ## Дополнительные уроки
 - [Пользователи, группы и права: практическая диагностика](./04-Users-groups-and-permissions.md)
-- [Интерактивная лаборатория: права доступа Linux](https://besit-gh.github.io/handover-devops-besit/web-lessons/linux-permissions/) — матрица rwx, калькулятор chmod, виртуальный терминал, блок-схемы, ACL и тест.
+- [Интерактивная лаборатория: права доступа Linux](https://besit-gh.github.io/handover-devops-besit/web-lessons/linux-permissions/) — матрица rwx, калькулятор chmod, виртуальный терминал, диагностика и тест.\n- [Файловые системы, монтирование и диагностика](./06-Filesystems-mounting-diagnostics.md) — устройства, UUID, mount, fstab, место и inode.\n- [Интерактивная лаборатория: файловые системы Linux](https://besit-gh.github.io/handover-devops-besit/web-lessons/linux-filesystems/) — виртуальные диски, терминал, проверка fstab и расследование инцидента.
 - [Процессы и сигналы](./05-Processes-and-signals.md)
 
-## Публикация интерактивного урока
-Исходная страница находится в [`web-lessons/linux-permissions/index.html`](../web-lessons/linux-permissions/index.html) и запускается локально без сборки и внешних библиотек. После публикации доступны оба адреса: корень сайта — https://besit-gh.github.io/handover-devops-besit/ и прямой путь урока — https://besit-gh.github.io/handover-devops-besit/web-lessons/linux-permissions/. Workflow [linux-permissions-pages.yml](../.github/workflows/linux-permissions-pages.yml) теперь помещает копию урока и в корень, и в исходный путь, чтобы обе ссылки работали. Публикация запускается автоматически при изменениях в ветке `features`; в настройках репозитория источник GitHub Pages должен быть **GitHub Actions**.
+## Публикация интерактивных уроков
+Исходники интерактивных страниц находятся в `web-lessons/` и запускаются локально без сборки и внешних библиотек. Workflow [linux-permissions-pages.yml](../.github/workflows/linux-permissions-pages.yml) проверяет обе страницы и публикует их по прямым путям; корень Pages по-прежнему показывает урок о правах доступа. Публикация запускается при изменениях в ветке `features`; источник GitHub Pages в настройках репозитория должен быть **GitHub Actions**.
