@@ -52,6 +52,40 @@ def render(source, current):
     source = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", replace_link, source)
     return markdown.markdown(source, extensions=["tables", "fenced_code", "toc", "sane_lists"])
 
+def build_practice(source):
+    """Create recall cards from lesson headings and explanations."""
+    cards = []
+    lines = source.splitlines()
+    for i, line in enumerate(lines):
+        if not line.startswith("## "):
+            continue
+        heading = line[3:].strip()
+        explanation = ""
+        for candidate in lines[i + 1:]:
+            candidate = candidate.strip()
+            if not candidate:
+                if explanation:
+                    break
+                continue
+            if candidate.startswith("#") or candidate.startswith(("~~~", ">", "-", "*", "|")) or candidate.startswith("    "):
+                continue
+            if candidate[:1].isdigit() and len(candidate) > 1 and candidate[1:2] in ".)":
+                continue
+            explanation = " ".join(candidate.replace("[", "").replace("]", "").split())
+            explanation = explanation.replace("**", "").replace("__", "").replace("*", "")
+            break
+        if explanation:
+            cards.append((heading, explanation[:520] + ("…" if len(explanation) > 520 else "")))
+    if not cards:
+        cards = [("Главная мысль урока", "Сформулируй ключевую идею, объясни механизм её работы и приведи практический пример из этого материала.")]
+    cards = cards[:6]
+    out = ['<section class="practice-deck" id="practice"><div class="practice-heading"><div><span class="eyebrow">АКТИВНОЕ ВОСПРОИЗВЕДЕНИЕ</span><h2>Проверь, что понял</h2></div><span class="practice-progress" id="practiceProgress">0 из ' + str(len(cards)) + '</span></div><p class="muted">Сначала ответь своими словами, не подглядывая. Затем открой пояснение и отметь карточку, если можешь объяснить тему без подсказки.</p><div class="practice-grid">']
+    for i, (heading, explanation) in enumerate(cards, 1):
+        out.append('<article class="recall-card" data-recall-card><div class="recall-number">КАРТОЧКА ' + str(i).zfill(2) + '</div><h3>' + html.escape(heading) + '</h3><p class="recall-prompt">Можешь объяснить эту тему и привести пример?</p><button type="button" class="reveal-answer" aria-expanded="false">Показать пояснение</button><div class="recall-answer" hidden>' + html.escape(explanation) + '</div><label class="recall-mastered"><input type="checkbox" data-recall-mastered> Могу объяснить без подсказки</label></article>')
+    out.append('</div></section>')
+    return ''.join(out)
+
+
 def main():
     if OUT.exists():
         shutil.rmtree(OUT)
@@ -89,13 +123,14 @@ def main():
     index_json = json.dumps(index, ensure_ascii=False).replace("</", "<\\/")
     for i, item in enumerate(lessons):
         content = render(item["raw"], item["path"])
+        practice_html = build_practice(item["raw"])
         headings = re.findall(r'<h([2-3]) id="([^"]+)">(.*?)</h[2-3]>', content)
         toc = ''.join('<a class="toc-link level-' + level + '" href="#' + anchor + '">' + re.sub("<.*?>", "", label) + '</a>' for level, anchor, label in headings)
         previous = '<a class="pager-link" href="' + lessons[i-1]["url"] + '">← Предыдущий материал</a>' if i else '<span></span>'
         following = '<a class="pager-link next" href="' + lessons[i+1]["url"] + '">Следующий материал →</a>' if i + 1 < len(lessons) else '<a class="pager-link next" href="' + BASE + '/">К каталогу →</a>'
         page = '''<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080d12"><title>''' + html.escape(item["title"]) + ''' · Handover DevOps</title><link rel="stylesheet" href="''' + BASE + '''/web-lessons/assets/course.css"></head><body>
 <header class="topbar"><button id="menuOpen" class="menu-button" aria-controls="courseDrawer" aria-expanded="false">☰ Курсы</button><a class="brand" href="''' + BASE + '''/"><span>HANDOVER</span> / DEVOPS</a><label class="search-wrap">⌕ <input id="courseSearch" type="search" placeholder="Найти урок…" aria-label="Поиск"></label><button id="themeToggle" class="quiet-button" aria-label="Переключить контраст">◐</button></header><div class="reading-progress"><span id="readingProgress"></span></div><div class="scrim" id="drawerScrim"></div><aside id="courseDrawer" class="drawer" aria-label="Каталог" aria-hidden="true"><div class="drawer-head"><strong>Учебный маршрут</strong><button id="menuClose" aria-label="Закрыть меню">×</button></div><div id="searchResults" class="search-results" hidden></div><nav><a class="nav-home" href="''' + BASE + '''/">⌂ Главная курса</a>''' + nav_html + '''</nav></aside>
-<div class="page-shell"><main class="article"><div class="breadcrumbs"><a href="''' + BASE + '''/">Курс</a><span>/</span><span>''' + html.escape(item["course"]) + '''</span></div><div class="article-meta"><span class="eyebrow">УЧЕБНЫЙ МАТЕРИАЛ</span><span id="readTime"></span></div><h1>''' + html.escape(item["title"]) + '''</h1><p class="intro">Изучай материал по шагам. Проверяй не только что делать, но и почему это работает.</p><div class="lesson-actions"><button id="completeLesson" class="primary-button">✓ Отметить урок пройденным</button><span id="completionState" aria-live="polite"></span></div><div class="article-content">''' + content + '''</div><section class="self-check"><h2>Проверка понимания</h2><p>Перед переходом дальше объясни основные идеи своими словами.</p><label><input type="checkbox" class="self-check-item"> Могу объяснить основные механизмы без подсказки</label><label><input type="checkbox" class="self-check-item"> Могу разобрать практический пример</label><label><input type="checkbox" class="self-check-item"> Могу проверить результат и диагностировать ошибку</label><p id="selfCheckState" class="muted"></p></section><nav class="lesson-pager">''' + previous + following + '''</nav></main><aside class="right-rail"><div class="rail-card"><strong>В этом материале</strong><nav class="toc">''' + toc + '''</nav></div><div class="rail-card"><strong>Твой прогресс</strong><p><span id="progressCount">0</span> материалов завершено</p><div class="mini-progress"><span id="miniProgress"></span></div><p class="muted small">Сохраняется в этом браузере.</p></div></aside></div><footer class="site-footer"><a href="''' + BASE + '''/">Handover DevOps</a><span>Учись безопасно. Проверяй результат.</span></footer><script>window.COURSE_BASE=''' + json.dumps(BASE) + ''';window.COURSE_CURRENT=''' + json.dumps(item["url"]) + ''';window.COURSE_INDEX=''' + index_json + ''';</script><script src="''' + BASE + '''/web-lessons/assets/course.js" defer></script></body></html>'''
+<div class="page-shell"><main class="article"><div class="breadcrumbs"><a href="''' + BASE + '''/">Курс</a><span>/</span><span>''' + html.escape(item["course"]) + '''</span></div><div class="article-meta"><span class="eyebrow">УЧЕБНЫЙ МАТЕРИАЛ</span><span id="readTime"></span></div><h1>''' + html.escape(item["title"]) + '''</h1><p class="intro">Изучай материал по шагам. Проверяй не только что делать, но и почему это работает.</p><div class="lesson-actions"><button id="completeLesson" class="primary-button">✓ Отметить урок пройденным</button><span id="completionState" aria-live="polite"></span></div><div class="article-content">''' + content + '''</div>''' + practice_html + '''<section class="self-check"><h2>Проверка понимания</h2><p>Перед переходом дальше объясни основные идеи своими словами.</p><label><input type="checkbox" class="self-check-item"> Могу объяснить основные механизмы без подсказки</label><label><input type="checkbox" class="self-check-item"> Могу разобрать практический пример</label><label><input type="checkbox" class="self-check-item"> Могу проверить результат и диагностировать ошибку</label><p id="selfCheckState" class="muted"></p></section><nav class="lesson-pager">''' + previous + following + '''</nav></main><aside class="right-rail"><div class="rail-card"><strong>В этом материале</strong><nav class="toc">''' + toc + '''</nav></div><div class="rail-card"><strong>Твой прогресс</strong><p><span id="progressCount">0</span> материалов завершено</p><div class="mini-progress"><span id="miniProgress"></span></div><p class="muted small">Сохраняется в этом браузере.</p></div></aside></div><footer class="site-footer"><a href="''' + BASE + '''/">Handover DevOps</a><span>Учись безопасно. Проверяй результат.</span></footer><script>window.COURSE_BASE=''' + json.dumps(BASE) + ''';window.COURSE_CURRENT=''' + json.dumps(item["url"]) + ''';window.COURSE_INDEX=''' + index_json + ''';</script><script src="''' + BASE + '''/web-lessons/assets/course.js" defer></script></body></html>'''
         dest = OUT / "learn" / slug(item["path"]) / "index.html"
         dest.parent.mkdir(parents=True, exist_ok=True)
         dest.write_text(page, encoding="utf-8")
