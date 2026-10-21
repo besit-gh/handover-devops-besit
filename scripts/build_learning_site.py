@@ -8,6 +8,21 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "site"
 BASE = "/handover-devops-besit"
 folders = sorted(p for p in ROOT.iterdir() if p.is_dir() and re.match(r"^(\d{2}-|90-|91-|92-)", p.name))
+THEMES = {
+    "00": "Маршрут и основы", "01": "Маршрут и основы",
+    "02": "Linux и автоматизация", "04": "Linux и автоматизация", "05": "Linux и автоматизация",
+    "03": "Сети и веб", "10": "Сети и веб", "11": "Сети и веб", "12": "Сети и веб", "13": "Сети и веб",
+    "06": "Инструменты разработки", "07": "Инструменты разработки", "08": "Инструменты разработки", "09": "Инструменты разработки",
+    "14": "Хранилища данных", "15": "Хранилища данных",
+    "16": "Контейнеры и оркестрация", "22": "Контейнеры и оркестрация", "23": "Контейнеры и оркестрация",
+    "17": "Разработка и доставка", "18": "Разработка и доставка",
+    "19": "Инфраструктура как код", "20": "Инфраструктура как код", "21": "Инфраструктура как код",
+    "24": "Наблюдаемость", "25": "Наблюдаемость", "26": "Наблюдаемость", "27": "Наблюдаемость",
+    "28": "Наблюдаемость", "29": "Наблюдаемость", "30": "Наблюдаемость", "31": "Наблюдаемость",
+    "32": "Безопасность", "33": "Безопасность",
+    "34": "Эксплуатация и надёжность", "35": "Эксплуатация и надёжность",
+    "90": "Практика и проекты", "91": "Практика и проекты", "92": "Практика и проекты",
+}
 lessons = []
 
 def slug(path):
@@ -52,17 +67,24 @@ def main():
         for path in sorted(folder.rglob("*.md")):
             source = path.read_text(encoding="utf-8")
             course = folder.name.split("-", 1)[-1].replace("-", " ")
-            lessons.append({"path": path, "source": str(path.relative_to(ROOT)), "title": title(source, path.stem), "course": course, "url": BASE + "/learn/" + slug(path) + "/", "text": re.sub(r"\s+", " ", re.sub(r"[#*>\[\]()]", " ", source)).lower(), "raw": source})
+            lessons.append({"path": path, "source": str(path.relative_to(ROOT)), "title": title(source, path.stem), "course": course, "theme": THEMES.get(folder.name.split("-", 1)[0], "Другие материалы"), "url": BASE + "/learn/" + slug(path) + "/", "text": re.sub(r"\s+", " ", re.sub(r"[#*>\[\]()]", " ", source)).lower(), "raw": source})
     lessons.sort(key=lambda x: x["source"])
     index = [{k: x[k] for k in ("title", "course", "url", "source", "text")} for x in lessons]
     groups = {}
     for item in lessons:
         groups.setdefault(item["course"], []).append(item)
+    themes = {}
+    for item in lessons:
+        themes.setdefault(item["theme"], {}).setdefault(item["course"], []).append(item)
     nav = []
-    for course, items in groups.items():
-        nav.append('<details class="nav-group"><summary>' + html.escape(course) + '<span class="nav-count">' + str(len(items)) + '</span></summary>')
-        nav.extend('<a class="nav-link" href="' + x["url"] + '">' + html.escape(x["title"]) + '</a>' for x in items)
-        nav.append('</details>')
+    for theme, courses in themes.items():
+        theme_count = sum(len(items) for items in courses.values())
+        nav.append('<details class="theme-group"><summary>' + html.escape(theme) + '<span class="nav-count">' + str(theme_count) + '</span></summary><div class="theme-courses">')
+        for course, items in courses.items():
+            nav.append('<details class="nav-group"><summary>' + html.escape(course) + '<span class="nav-count">' + str(len(items)) + '</span></summary>')
+            nav.extend('<a class="nav-link" href="' + x["url"] + '">' + html.escape(x["title"]) + '</a>' for x in items)
+            nav.append('</details>')
+        nav.append('</div></details>')
     nav_html = ''.join(nav)
     index_json = json.dumps(index, ensure_ascii=False).replace("</", "<\\/")
     for i, item in enumerate(lessons):
