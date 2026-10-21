@@ -82,7 +82,7 @@ jobs:
           assert all(f'id="{item}"' in source for item in required), "Не найдены обязательные разделы урока"
           scripts = re.findall(r"<script>(.*?)</script>", source, re.S)
           assert scripts, "Не найден встроенный JavaScript"
-          Path("/tmp/linux-filesystems.js").write_text("\\n".join(scripts), encoding="utf-8")
+          Path("/tmp/linux-filesystems.js").write_text("\n".join(scripts), encoding="utf-8")
 
           class Checker(HTMLParser):
               def __init__(self):
