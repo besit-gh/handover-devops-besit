@@ -52,6 +52,9 @@ jobs:
           for page in pages:
               source=page.read_text(encoding="utf-8")
               assert '<html lang="ru">' in source, f"Missing Russian locale: {page}"
+              if "/learn/" in str(page):
+                  assert 'class="practice-deck"' in source, f"Missing interactive practice: {page}"
+                  assert 'data-recall-card' in source, f"Missing recall cards: {page}"
               checker=Check(); checker.feed(source)
               duplicates=sorted({x for x in checker.ids if checker.ids.count(x)>1})
               assert not duplicates, f"Duplicate IDs in {page}: {duplicates}"
