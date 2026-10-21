@@ -60,9 +60,9 @@ def main():
         groups.setdefault(item["course"], []).append(item)
     nav = []
     for course, items in groups.items():
-        nav.append('<section class="nav-group"><h2>' + html.escape(course) + '</h2>')
+        nav.append('<details class="nav-group"><summary>' + html.escape(course) + '<span class="nav-count">' + str(len(items)) + '</span></summary>')
         nav.extend('<a class="nav-link" href="' + x["url"] + '">' + html.escape(x["title"]) + '</a>' for x in items)
-        nav.append('</section>')
+        nav.append('</details>')
     nav_html = ''.join(nav)
     index_json = json.dumps(index, ensure_ascii=False).replace("</", "<\\/")
     for i, item in enumerate(lessons):
